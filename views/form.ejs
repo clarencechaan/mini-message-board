@@ -8,12 +8,24 @@
     <title>New Message</title>
   </head>
   <body>
-    <h2>New Message</h2>
+    <a href="/">&lt; Back</a>
+    <h1>New message</h1>
     <form method="POST" action="/new">
-      <label for="name">Name: </label>
-      <input type="text" id="name" />
-      <label for="message">Message: </label>
-      <input type="text" id="message" />
+      <input
+        type="text"
+        id="username"
+        name="username"
+        placeholder="Name"
+        required
+      />
+      <input
+        type="text"
+        id="messageText"
+        name="messageText"
+        placeholder="Enter a message"
+        required
+      />
+      <button>Post</button>
     </form>
   </body>
 </html>

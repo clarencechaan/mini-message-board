@@ -1,4 +1,5 @@
 var express = require("express");
+var getTimeAgo = require("../js/timeConversion");
 var router = express.Router();
 
 const messages = [
@@ -17,11 +18,22 @@ const messages = [
 /* GET home page. */
 router.get("/", function (req, res, next) {
   // res.render('index', { title: 'Express' });
-  res.render("index", { title: "Mini Messageboard", messages: messages });
+  res.render("index", {
+    title: "Mini Messageboard",
+    messages: messages,
+    getTimeAgo: getTimeAgo,
+  });
 });
 
 router.get("/new", function (req, res, next) {
   res.render("form");
+});
+
+router.post("/new", function (req, res, next) {
+  const messageUser = req.body.username;
+  const messageText = req.body.messageText;
+  messages.push({ text: messageText, user: messageUser, added: new Date() });
+  res.redirect("/");
 });
 
 module.exports = router;

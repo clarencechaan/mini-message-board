@@ -3,14 +3,17 @@
   <head>
     <title><%= title %></title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script src="/javascripts/timeConversion.js"></script>
   </head>
   <body>
+    <a href="/new">New message</a>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
     <% for (const m of messages) { %>
-    <p><%= m.user %></p>
-    <p><%= m.added %></p>
-    <p><%= m.text %></p>
+    <div class="message">
+      <p class="date"><%= getTimeAgo(m.added) %></p>
+      <p class="username"><%= m.user %></p>
+      <p><%= m.text %></p>
+    </div>
     <% } %>
   </body>
 </html>
