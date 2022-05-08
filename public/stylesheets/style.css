@@ -30,6 +30,7 @@ p {
   margin-bottom: 16px;
   margin-left: 40px;
   transition: 0.3s;
+  word-wrap: break-word;
 }
 
 .message:hover {

@@ -1,8 +1,6 @@
 function getTimeAgo(date) {
   const now = Date.parse(new Date()) / 1000;
   const start = Date.parse(date) / 1000;
-  console.log(now);
-  console.log(start);
 
   const seconds = now - start;
   const minutes = Math.floor(seconds / 60);
